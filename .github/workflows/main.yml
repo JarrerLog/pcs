@@ -27,9 +27,9 @@ jobs:
           Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
         
       - name: Change pass for RDP.
-        env: 
+        env:
           ADMINPASSWORD: ${{ secrets.ADMINPASSWORD }}
-        run: 
+        run: |
           net user runneradmin $Env:ADMINPASSWORD
           echo $Env:ADMINPASSWORD
         
